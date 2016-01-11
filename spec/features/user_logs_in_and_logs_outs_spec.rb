@@ -23,5 +23,4 @@ RSpec.feature "UserLogsInAndLogsOut", type: :feature do
     end
     expect(current_path).to eq(root_path)
   end
-
 end

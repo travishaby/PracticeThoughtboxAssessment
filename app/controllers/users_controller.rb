@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if current_user && @user = User.find_by(id: params[:id])
       @user
     elsif @user
-      #redirect_to login_path
+      redirect_to login_path
     else
       redirect_to new_user_path
     end
@@ -19,10 +19,11 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash.now[:error] = "Account creation unsuccessful: #{@user.errors}"
-      render :new
+      flash[:error] = "Account creation unsuccessful: #{@user.errors}"
+      redirect_to new_user_path
     end
   end
+
   private
 
   def user_params
