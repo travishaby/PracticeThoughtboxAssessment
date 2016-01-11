@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get '/login', to: 'users#new'
+  root 'users#show'
+  get '/create_account', to: 'users#new'
   get '/dashboard', to: 'users#show'
+  post '/create_account', to: 'users#create'
 end
