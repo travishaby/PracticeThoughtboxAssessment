@@ -4,6 +4,8 @@ class Link < ActiveRecord::Base
   include ActiveModel::Validations
   validate :valid_link?
 
+  validates :url, :title, presence: true, uniqueness: true
+
   def valid_link?
     uri = URI.parse(self.url)
     errors.add(:base, "Invalid url") unless uri.kind_of?(URI::HTTP)

@@ -21,5 +21,13 @@ RSpec.describe Link, type: :model do
                       title: "bad link")
       expect(link).to be_invalid
     end
+    it "must have a url" do
+      link = Link.new(title: "bad link")
+      expect(link).to be_invalid
+    end
+    it "must have a title" do
+      link = Link.new(url: "not@a@good.link")
+      expect(link).to be_invalid
+    end
   end
 end
