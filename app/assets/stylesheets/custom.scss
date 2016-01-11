@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+  flex: 1 0 auto;
+}
+
+th {
+  :hover {
+    color: $primary-color;
+  }
+}
+
+.large-break {
+  padding-top: 100px;
+}
+
+.medium-break {
+  padding-top: 50px;
+}
+
+.small-break {
+  padding-top: 20px;
+}
+
+.site-color {
+  background-color: $primary-color;
+}
+
+.text-color {
+  color: #454d52;
+}
+
+.obese-container {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#footer {
+  padding-bottom: 20px;
+}
+
+#left_padding {
+  padding-left: 25px;
+}
