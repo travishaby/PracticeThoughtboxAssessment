@@ -8,7 +8,6 @@ RSpec.feature "UserLogsInAndLogsOut", type: :feature do
     user = User.create(email: "test@test.com",
                     username: "travishaby",
                     password: "password")
-    visit login_path
 
     fill_in "login[username]", with: "travishaby"
     fill_in "login[password]", with: "password"
