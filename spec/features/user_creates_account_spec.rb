@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "UserLogsIns", type: :feature do
+RSpec.feature "UserCreatesAccount", type: :feature do
   scenario "Unauthenticated user signs up" do
     visit "/users/new"
     within "#new_user" do
