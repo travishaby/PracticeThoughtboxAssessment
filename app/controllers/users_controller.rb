@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    @user = User.new
   end
 
   def show
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
     elsif @user
       #redirect_to login_path
     else
-      redirect_to create_account_path
+      redirect_to new_user_path
     end
   end
 
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to dashboard_path
+      redirect_to user_path(@user)
     else
       flash.now[:error] = "Account creation unsuccessful: #{@user.errors}"
       render :new
@@ -25,6 +26,9 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email,
+                                 :username,
+                                 :password,
+                                 :password_confirmation)
   end
 end
