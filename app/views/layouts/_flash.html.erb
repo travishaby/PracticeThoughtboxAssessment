@@ -1,0 +1,5 @@
+<% flash.each do |name, message| %>
+  <%= content_tag(:div, sanitize(message),
+  class: "#{message}",
+  :id => "flash_#{name}") %>
+<% end %>
