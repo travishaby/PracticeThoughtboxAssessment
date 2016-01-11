@@ -8,6 +8,11 @@ RSpec.describe Link, type: :model do
                    read: false)
       expect(link).to be_valid
     end
+    it "has default read value of false" do
+      link = Link.create(url: "http://www.google.com",
+                   title: "Google")
+      expect(link.read).to eq(false)
+    end
   end
 
   describe "Invalid Link" do
