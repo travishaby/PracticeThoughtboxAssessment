@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
     unless @link.save
-      flash.now[:error] = "Link creation unsuccessful: #{@link.errors}"
+      flash[:error] = @link.errors.full_messages.join(", ")
     end
     redirect_to links_path
   end
