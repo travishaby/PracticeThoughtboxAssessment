@@ -16,6 +16,12 @@ RSpec.feature "UserLogsInAndLogsOut", type: :feature do
     click_on "Log In"
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome, #{user.username}")
+
+    within "#nav-mobile" do
+      expect(page).to_not have_link("Sign Up")
+      click_on "Logout"
+    end
+    expect(current_path).to eq(root_path)
   end
 
 end
