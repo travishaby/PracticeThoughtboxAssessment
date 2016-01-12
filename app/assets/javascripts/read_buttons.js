@@ -22,13 +22,14 @@ function markAs(link, isRead) {
     var data = {link: {
       read: isRead
     }}
-    var newIsRead = (isRead === "true")
+    var newIsRead = (isRead === "true").toString()
     $.ajax({
         url: "api/v1/links/" + link.attr('data-id'),
         method: "PUT",
         data: data,
         success: function(){
-          $(link).attr('data-read', newIsRead.toString())
+          $(link).attr('data-read', newIsRead);
+          $(link).find('.read-status').text('Read? ' + newIsRead);
         },
         error: function(response){
           console.log(response, "update failed")
